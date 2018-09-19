@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the plus button is clicked.
      */
     public void increment(View view) {
-        if (quantity == 100){
+        if (quantity == 100) {
             Toast.makeText(this, "You cannot order more than 100 cups of coffee", Toast.LENGTH_SHORT).show();
             return;
-    }
+        }
         quantity = quantity + 1;
         displayQuantity(quantity);
     }
@@ -58,13 +58,6 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-//        int price = (quantity * coffeePrice);
-//        String priceMessage = "Total: $" + totalPrice + ".00" + "\nThank You!";
-//        createOrderSummary("Bobby");
-//        displayMessage(priceMessage);
-
-        // Log.v("MainActivity", "Has whipped cream: " + hasWhippedCream);
-
         // Code to input name for order
         EditText nameInput = findViewById(R.id.nameInputEditText);
         String name = nameInput.getText().toString();
@@ -85,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         emailIntent.setData(Uri.parse("mailto: rreay724@gmail.com"));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Just Java Coffee Order Summary for " + name);
         emailIntent.putExtra(Intent.EXTRA_TEXT, priceMessage);
-        if (emailIntent.resolveActivity(getPackageManager()) != null){
+        if (emailIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(emailIntent);
         }
     }
@@ -109,26 +102,6 @@ public class MainActivity extends AppCompatActivity {
         return quantity * pricePerCup;
     }
 
-    // Code I initially created to calculate price with whipped cream and/or chocolate
-//        CheckBox whippedCreamCheckBox = findViewById(R.id.whippedCreamCheckBox);
-//        CheckBox chocolateCheckBox = findViewById(R.id.chocolateCheckBox);
-//        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
-//        boolean hasChocolate = chocolateCheckBox.isChecked();
-//        int pricePerCup = 5;
-//        int priceChocolate = 2;
-//        int priceWhippedCream = 1;
-//
-//        if (hasChocolate && hasWhippedCream) {
-//            return quantity *  (pricePerCup + priceWhippedCream + priceChocolate);
-//        }else if (hasChocolate){
-//            return quantity * (pricePerCup + priceChocolate);
-//        } else if (hasWhippedCream){
-//            return quantity * (pricePerCup + priceWhippedCream);
-//        } else {
-//            return quantity * pricePerCup;
-//        }
-
-
     /**
      * Create summary of the order
      *
@@ -147,14 +120,6 @@ public class MainActivity extends AppCompatActivity {
         return priceMessage;
     }
 
-    /** The original createOrderSummary I wrote. Both do the same thing,
-     *  this one just doesn't have a return statement **/
-//    private void createOrderSummary (String name){
-//        int totalPrice = calculatePrice();
-//        String priceMessage = "Name: " + name + "\nQuantity: " + quantity + "\nTotal: $" + totalPrice + ".00" + "\nThank you!";
-//        displayMessage(priceMessage);
-//    }
-
     /**
      * This method displays the given quantity value on the screen.
      */
@@ -162,14 +127,6 @@ public class MainActivity extends AppCompatActivity {
         TextView quantityTextView = findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
-
-    /**
-     * This method displays the given quantity value on the screen
-     **/
-//    private void displayPrice(int number) {
-//        TextView priceTextView = findViewById(R.id.price_text_view);
-//        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-//    }
 
     /**
      * This method is called to display message under Price
@@ -193,10 +150,10 @@ public class MainActivity extends AppCompatActivity {
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
         boolean hasChocolate = chocolateCheckBox.isChecked();
 
-        if (hasWhippedCream){
+        if (hasWhippedCream) {
             whippedCreamCheckBox.setChecked(false);
         }
-        if (hasChocolate){
+        if (hasChocolate) {
             chocolateCheckBox.setChecked(false);
         }
 
